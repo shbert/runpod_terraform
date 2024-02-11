@@ -10,8 +10,10 @@ query Pod($podId: String!) {
         ports
         volumeInGb
         imageName
+        dockerArgs
         machine {
             gpuTypeId
+            secureCloud
         }          
     }
 }
