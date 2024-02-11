@@ -1,0 +1,17 @@
+query Pod($podId: String!) {
+    pod(input: {
+        podId: $podId
+    }) {
+        id
+        name
+        containerDiskInGb
+        env
+        gpuCount
+        ports
+        volumeInGb
+        imageName
+        machine {
+            gpuTypeId
+        }          
+    }
+}

@@ -1,0 +1,20 @@
+mutation PodEditJob($podId: String!, $ports: String!, $imageName: String!, $containerDiskInGb: Int!, $volumeInGb: Int) {
+    podEditJob(
+        input: {
+            podId: $podId
+            ports: $ports
+            imageName: $imageName
+            containerDiskInGb: $containerDiskInGb
+            volumeInGb: $volumeInGb
+        }
+    ) {
+        id
+    }
+}
+
+# "name" = var.name
+# "ports" = var.ports
+# "gpuTypeId" = var.gpuTypeId
+# "gpuCount" = var.gpuCount
+# "imageName" = var.imageName
+# "containerDiskSize" = var.containerDiskSize

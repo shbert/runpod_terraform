@@ -1,0 +1,22 @@
+mutation podFindAndDeployOnDemand($name: String!, $gpuTypeId: String!, $gpuCount: Int!, $imageName: String!, $ports: String!, $volumeInGb: Int!, $containerDiskInGb: Int!) {
+    podFindAndDeployOnDemand(
+        input: {
+            #cloudType: $cloudType
+            cloudType: COMMUNITY
+            gpuCount: $gpuCount
+            gpuTypeId: $gpuTypeId
+            volumeInGb: $volumeInGb
+            containerDiskInGb: $containerDiskInGb
+            minVcpuCount: 2
+            minMemoryInGb: 15
+            name: $name
+            dockerArgs: ""
+            imageName: $imageName
+            ports: $ports
+            volumeMountPath: "/workspace"
+            env: []
+        }
+    ) {
+        id
+    }
+}

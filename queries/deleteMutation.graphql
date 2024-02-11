@@ -1,0 +1,3 @@
+mutation podTerminate($podId: String!) {
+    podTerminate(input: { podId: $podId })
+}
