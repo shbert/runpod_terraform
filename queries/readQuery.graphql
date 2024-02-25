@@ -11,6 +11,7 @@ query Pod($podId: String!) {
         volumeInGb
         imageName
         dockerArgs
+        volumeMountPath
         machine {
             gpuTypeId
             secureCloud

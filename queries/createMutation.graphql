@@ -1,5 +1,5 @@
 #mutation podFindAndDeployOnDemand($cloudType: CloudTypeEnum!, $name: String!, $gpuTypeId: String!, $gpuCount: Int!, $imageName: String!, $ports: String!, $volumeInGb: Int!, $containerDiskInGb: Int!) {
-mutation podFindAndDeployOnDemand($name: String!, $gpuTypeId: String!, $gpuCount: Int!, $imageName: String!, $ports: String!, $volumeInGb: Int!, $containerDiskInGb: Int!, $dockerArgs: String!) {
+mutation podFindAndDeployOnDemand($name: String!, $gpuTypeId: String!, $gpuCount: Int!, $imageName: String!, $ports: String!, $volumeInGb: Int!, $containerDiskInGb: Int!, $dockerArgs: String!, $volumeMountPath: String!) {
     podFindAndDeployOnDemand(
         input: {
             #cloudType: $cloudType
@@ -14,7 +14,7 @@ mutation podFindAndDeployOnDemand($name: String!, $gpuTypeId: String!, $gpuCount
             dockerArgs: $dockerArgs
             imageName: $imageName
             ports: $ports
-            volumeMountPath: "/workspace"
+            volumeMountPath: $volumeMountPath
             env: []
         }
     ) {

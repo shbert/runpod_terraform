@@ -50,7 +50,8 @@ variable "volumeInGb" {
     type = number
     default = 50
 }
-variable "volumePath" {
+variable "volumeMountPath" {
+    description = "Mountpoint of the addtional volume"
     type = string
     default = "/workspace"
 }

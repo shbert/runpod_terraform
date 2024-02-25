@@ -24,7 +24,7 @@ resource "graphql_mutation" "runpod_create_mutation" {
         "containerDiskInGb" = var.containerDiskInGb
         "volumeInGb" = var.volumeInGb
         "dockerArgs" = var.dockerArgs
-        #"volumePath" = "${var.volumePath}"
+        "volumeMountPath" = "${var.volumeMountPath}"
     }
 
     compute_mutation_keys = {
