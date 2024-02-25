@@ -7,35 +7,13 @@ terraform {
     }
 }
 
-variable "runpodApiEndpoint" {}
-variable "runpodApiKey" {}
 
-variable "name" {}
-variable "cloudType" {
-    type = string
-    default = "COMMUNITY"
-    validation {
-        condition     = contains(["COMMUNITY", "SECURE", "ALL"], var.cloudType)
-        error_message = "Allowed values for input_parameter are \"COMMUNITY\", \"SECURE\", or \"ALL\"."
-    }
-}
-variable "ports" {}
-variable "gpuTypeId" {}
-variable "gpuCount" {}
-variable "imageName" {}
-variable "containerDiskInGb" {}
-variable "volumeInGb" {}
-variable "volumePath" {}
-variable "dockerArgs" {
-  type = string
-  default = ""
-}
 
 provider "graphql" {
     url = "${var.runpodApiEndpoint}?api_key=${var.runpodApiKey}"
 }
 
-resource "graphql_mutation" "basic_mutation" {
+resource "graphql_mutation" "runpod_create_mutation" {
     mutation_variables = {
         #"cloudType" = var.cloudType
         "name" = "${var.name}"
@@ -60,3 +38,4 @@ resource "graphql_mutation" "basic_mutation" {
     delete_mutation = file("./queries/deleteMutation.graphql")
     read_query      = file("./queries/readQuery.graphql")
 }
+
