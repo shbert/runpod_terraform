@@ -1,4 +1,4 @@
-mutation PodEditJob($podId: String!, $ports: String!, $imageName: String!, $containerDiskInGb: Int!, $volumeInGb: Int, $dockerArgs: String) {
+mutation PodEditJob($podId: String!, $ports: String!, $imageName: String!, $containerDiskInGb: Int!, $volumeInGb: Int, $dockerArgs: String, $volumeMountPath: String) {
     podEditJob(
         input: {
             podId: $podId
@@ -7,6 +7,7 @@ mutation PodEditJob($podId: String!, $ports: String!, $imageName: String!, $cont
             containerDiskInGb: $containerDiskInGb
             volumeInGb: $volumeInGb
             dockerArgs: $dockerArgs
+            volumeMountPath: $volumeMountPath
         }
     ) {
         id
