@@ -35,6 +35,15 @@ provider "graphql" {
     url = "${var.runpodApiEndpoint}?api_key=${var.runpodApiKey}"
 }
 
+data "graphql_query" "selectGpuType"  {
+    query_variables = {
+      "gpuTypeFilter" = "${var.gpuTypeId}"
+      "gpuLowestPriceInput" = var.gpuCount
+    }
+
+    query = file("${path.module}/queries/gpuTypesSelect.graphql")
+}
+
 resource "graphql_mutation" "basic_mutation" {
     mutation_variables = {
         #"cloudType" = var.cloudType
@@ -55,8 +64,8 @@ resource "graphql_mutation" "basic_mutation" {
 
     compute_from_create = true
 
-    create_mutation = file("./queries/createMutation.graphql")
-    update_mutation = file("./queries/updateMutation.graphql")
-    delete_mutation = file("./queries/deleteMutation.graphql")
-    read_query      = file("./queries/readQuery.graphql")
+    create_mutation = file("${path.module}/queries/createMutation.graphql")
+    update_mutation = file("${path.module}/queries/updateMutation.graphql")
+    delete_mutation = file("${path.module}/queries/deleteMutation.graphql")
+    read_query      = file("${path.module}/queries/readQuery.graphql")
 }

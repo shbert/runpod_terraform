@@ -1,0 +1,13 @@
+query gpuTypesSelect($gpuTypeFilter: GpuTypeFilter!, $gpuLowestPriceInput: GpuLowestPriceInput) {
+    gpuTypes(input: $gpuTypeFilter) {
+        id
+        communityPrice
+        communityCloud
+        lowestPrice(input: $gpuLowestPriceInput) {
+            gpuTypeId
+            uninterruptablePrice
+            stockStatus
+            countryCode
+        }
+    }
+}
