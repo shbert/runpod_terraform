@@ -1,0 +1,20 @@
+repo_name: shbert/runpod_terraform
+report_id: c212e98b9dddb0f218a76ac97cacdd88
+version: 0.1
+repo_type: Public
+timestamp: '2024-05-11T09:48:06+00:00'
+requested_by: shbert
+provider: github
+branch: master
+detected_tools_count: 1
+tools:
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/shbert/runpod_terraform
+  detection_source: Repo Metadata
